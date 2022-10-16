@@ -15,7 +15,6 @@
     <description>codari-gathering-webapp</description>
     <properties>
         <java.version>11</java.version>
-        <flyway.migration.skip>true</flyway.migration.skip>
     </properties>
     <dependencies>
         <dependency>
@@ -73,6 +72,17 @@
             <artifactId>reactor-test</artifactId>
             <scope>test</scope>
         </dependency>
+
+        <dependency>
+            <groupId>org.flywaydb</groupId>
+            <artifactId>flyway-mysql</artifactId>
+        </dependency>
+        <!--        Only For Flyway-->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.30</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -101,7 +111,7 @@
                 <artifactId>flyway-maven-plugin</artifactId>
                 <version>7.0.0</version>
                 <configuration>
-                    <skip>${flyway.migration.skip}</skip>
+                    <skip>true</skip>
                     <url>jdbc:mysql://122.43.41.113:53306/codari-gathering</url>
                     <user>codari-gathering</user>
                     <password>codari</password>
