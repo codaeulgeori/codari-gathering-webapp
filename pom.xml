@@ -10,11 +10,12 @@
     </parent>
     <groupId>com.tpotato</groupId>
     <artifactId>codari-gathering-webapp</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.1</version>
     <name>codari-gathering-webapp</name>
     <description>codari-gathering-webapp</description>
     <properties>
         <java.version>11</java.version>
+        <flyway.migration.skip>true</flyway.migration.skip>
     </properties>
     <dependencies>
         <dependency>
@@ -75,6 +76,7 @@
     </dependencies>
 
     <build>
+        <finalName>${project.artifactId}</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
@@ -86,6 +88,23 @@
                             <artifactId>lombok</artifactId>
                         </exclude>
                     </excludes>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>3.1.0</version>
+            </plugin>
+
+            <plugin>
+                <groupId>org.flywaydb</groupId>
+                <artifactId>flyway-maven-plugin</artifactId>
+                <version>7.0.0</version>
+                <configuration>
+                    <skip>${flyway.migration.skip}</skip>
+                    <url>jdbc:mysql://122.43.41.113:53306/codari-gathering</url>
+                    <user>codari-gathering</user>
+                    <password>codari</password>
                 </configuration>
             </plugin>
         </plugins>
