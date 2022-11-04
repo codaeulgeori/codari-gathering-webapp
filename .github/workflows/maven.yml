@@ -39,8 +39,8 @@ jobs:
     - name : check
       run: du -ah
     - name: CD-Stop App
-      run: sudo ssh -o StrictHostKeyChecking=no -i .github/workflows/key/jhpark-nuc-ssh jhpark@122.43.41.113 sudo systemctl stop codari-gathering
+      run: sudo ssh -o StrictHostKeyChecking=no -i .github/workflows/key/jhpark-nuc-ssh jhpark@222.112.145.56 sudo systemctl stop codari-gathering
     - name: CD-Copy Output
-      run: sudo scp -o StrictHostKeyChecking=no -i .github/workflows/key/jhpark-nuc-ssh target/codari-gathering-webapp.jar jhpark@122.43.41.113:codari/gathering-webapp
+      run: sudo scp -o StrictHostKeyChecking=no -i .github/workflows/key/jhpark-nuc-ssh target/codari-gathering-webapp.jar jhpark@222.112.145.56:codari/gathering-webapp
     - name: CD-Start App
-      run: sudo ssh -o StrictHostKeyChecking=no -i .github/workflows/key/jhpark-nuc-ssh jhpark@122.43.41.113 sudo systemctl start codari-gathering
+      run: sudo ssh -o StrictHostKeyChecking=no -i .github/workflows/key/jhpark-nuc-ssh jhpark@222.112.145.56 sudo systemctl start codari-gathering
